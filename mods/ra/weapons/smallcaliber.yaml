@@ -36,6 +36,9 @@ ZSU-23:
 
 FLAK-23-AA:
 	Inherits: ^AACannon
+	Projectile: Bullet
+		Speed: 1c682
+		Blockable: false
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air, Ground, Water
 
