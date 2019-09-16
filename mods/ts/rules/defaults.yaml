@@ -186,6 +186,12 @@
 ^LowPrioritySelectionMode:
 	Selectable:
 		PriorityModifiers: Ctrl, Alt
+		
+^1x1Shape:
+	HitShape:
+		Type: Rectangle
+			TopLeft: -512, -512
+			BottomRight: 512, 512
 
 ^2x1Shape:
 	HitShape:
@@ -1011,8 +1017,12 @@
 
 ^Tree:
 	Inherits@1: ^SpriteActor
+	Inherits@shape: ^1x1Shape
 	Interactable:
 	HiddenUnderShroud:
+	Tooltip:
+		Name: Tree
+		ShowOwnerRow: false
 	RenderSprites:
 		Palette: terraindecoration
 	WithSpriteBody:
@@ -1024,8 +1034,54 @@
 		Terrain: Tree
 	AppearsOnMapPreview:
 		Terrain: Tree
+	Health:
+		HP: 50000
+	Armor:
+		Type: Wood
+	Targetable:
+		TargetTypes: Trees
+	WithDamageOverlay@SmallBurn:
+		DamageTypes: Incendiary
+		Image: smallscorches
+		MinimumDamageState: Light
+		MaximumDamageState: Medium
+	WithDamageOverlay@MediumBurn:
+		DamageTypes: Incendiary
+		Image: mediumscorches
+		MinimumDamageState: Medium
+		MaximumDamageState: Heavy
+	WithDamageOverlay@LargeBurn:
+		DamageTypes: Incendiary
+		Image: largescorches:
+		MinimumDamageState: Heavy
+		MaximumDamageState: Dead
+	HiddenUnderShroud:
+	ScriptTriggers:
+	MapEditorData:
+		Categories: Tree
+	RequiresSpecificOwners:
+		ValidOwnerNames: Neutral
+
+^TreeHusk:
+	Inherits@1: ^SpriteActor
+	Interactable:
+	HiddenUnderShroud:
+	RenderSprites:
+		Palette: terraindecoration
+	AppearsOnRadar:
+	RadarColorFromTerrain:
+		Terrain: Tree
+	AppearsOnMapPreview:
+		Terrain: Tree
+	Building:
+		Footprint: x
+		Dimensions: 1, 1
+	WithSpriteBody:
 	Tooltip:
-		Name: Tree
+		Name: Tree (Burnt)
+		ShowOwnerRow: false
+	HiddenUnderShroud:
+	ScriptTriggers:
 	MapEditorData:
 		Categories: Tree
 	RequiresSpecificOwners:
